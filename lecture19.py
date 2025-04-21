@@ -62,11 +62,6 @@ def selection_sort(l: List[int]) -> List[int]:
 # [3, 4, 5, 10, 12] # no change required
 # [3, 4, 5, 10, 12] # no change required
 
-
-
-
-
-
 def bubble_sort(l: List[int]) -> List[int]:
     n = len(l)
     for i in range(n):
@@ -85,14 +80,6 @@ def bubble_sort(l: List[int]) -> List[int]:
     # Conclude i = n.
     assert(is_sorted(l[0:n]))
     return l
-
-
-
-
-
-
-
-
 
 
 from typing import List
@@ -137,13 +124,6 @@ def bubble_sort(l: List[int]) -> List[int]:
 # If an algorithm runs in '3n^2 + 5n + 7' units of time, we simplify it to 'O(n^2)'
 # This predicts performance for large datasets. Helps compare different algorithms beyond small input sizes.
 
-
-
-
-
-
-
-
 # There are also other parameters such as stability, adaptability, and swap efficiency. We will push it to another day. 
 
 
@@ -169,18 +149,6 @@ def bubble_sort(l: List[int]) -> List[int]:
 
 # O(n^2) captures the notion that, in AT MOST some quadratic time, we can run selection sort. 
 
-# Similarly, there is a lower bound. That is called Omega. 
-# When a function/algorithm etc. is O(f(n)) and Omega(f(n)), we call it Theta(f(n)). 
-
-
-# There is also small o and small omega, which captures the growth of the function. 
-
-
-
-
-
-
-
 # T(n)= c*n + T(n−1)
 
 
@@ -197,9 +165,6 @@ def bubble_sort(l: List[int]) -> List[int]:
 # So both of them seem equal. 
 
 # What if we change bubble sort to: 
-# THis change is done later on a better day.
-
-
 
 from typing import List
 
@@ -228,35 +193,7 @@ def bubble_sort_opt(l: List[int]) -> List[int]:
 
 # What about the best case in this, vs original bubble sort?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Can we do a faster algorithm?
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Can we do recursion? 
 # OCAML TIME!
@@ -295,55 +232,3 @@ def insertion_sort(l: List[int]) -> List[int]:
     return l
 
 # Write this as a single function and identify the loop invariants, and prove correctness.
-
-
-# let rec quick_sort (l: int list) : int list = 
-#   match l with
-#   | [] -> []
-#   | h :: t -> quick_sort (filter (fun x -> x < h) l) @ quick_sort (filter (fun x -> x >= h) l)
-# ;;
-
-
-def quick_sort(l: List[int]) -> List[int]:
-    if (l == []):
-        return l
-    else:
-        pivot = l[0]
-        n = len(l)
-        left = []
-        right = []
-        for i in range(1, n):
-            if l[i] < pivot:
-                left.append(l[i])
-            else:
-                right.append(l[i])
-
-        return quick_sort(left) + [pivot] + quick_sort(right)
-
-# This version is correct, but not quick as it is not tail recursive. 
-
-
-# What is the complexity of quick sort? 
-# T(n) = 2(n - 1) + T(k) + T(n - 1 - k)
-
-
-# Case 1: Left or Right is always empty
-# T(n) = 2(n - 1) + T(n - 1)
-# Same as your recursive equations before, so O(n^2)
-
-# Caveat: You can do some optimization?
-
-# Case 2: Both are equal
-# T(n) = 2(n - 1) + 2*T(n/2)
-
-# T(2) = 2
-# T(4) = 6 + 2*2 = 10
-# T(8) = 14 + 2*10 = 34
-# This evaluates to O(n log n). Which is smaller than O(n^2)
-
-
-
-
-
-
-# What is the worst case time complexity of Merge Sort? 

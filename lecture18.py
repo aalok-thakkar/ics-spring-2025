@@ -300,9 +300,3 @@ def selection_sort(l: List[int]) -> List[int]:
     # That is:
     assert all(l[k] <= l[k + 1] for k in range(len(l)))
     return l
-
-
-
-
-
-
